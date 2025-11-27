@@ -1,0 +1,105 @@
+{
+  "planos": [
+    {
+      "id": "louco",
+      "nome": "Plano Louco",
+      "preco": 19.90,
+      "descricao": "Perfeito para quem mora longe mas quer estar sempre conectado com o Timão. Conteúdos exclusivos e premiações especiais.",
+      "beneficios": [
+        "Acesso ao App Universo SCCP",
+        "Conteúdos exclusivos",
+        "Participação em sorteios",
+        "Descontos em produtos oficiais",
+        "Newsletter semanal"
+      ]
+    },
+    {
+      "id": "gaviao",
+      "nome": "Plano Gavião",
+      "preco": 49.90,
+      "descricao": "Prioridade e desconto na compra de ingressos para setores Sul e Leste. Para quem não perde um jogo na Arena!",
+      "beneficios": [
+        "Todos os benefícios do Plano Louco",
+        "Prioridade na compra de ingressos",
+        "Descontos em ingressos (Sul e Leste)",
+        "Pontos no programa de fidelidade",
+        "Acesso a promoções exclusivas"
+      ]
+    },
+    {
+      "id": "mosqueteiro",
+      "nome": "Plano Mosqueteiro",
+      "preco": 89.90,
+      "descricao": "Maior pontuação e prioridade na escolha de assentos nos setores Leste e Oeste. Escolha os melhores lugares!",
+      "beneficios": [
+        "Todos os benefícios do Plano Gavião",
+        "Máxima prioridade em ingressos",
+        "Escolha de assentos (Leste e Oeste)",
+        "Dobro de pontos fidelidade",
+        "Acesso a eventos VIP",
+        "Desconto em produtos do clube"
+      ]
+    }
+  ],
+  "usuarios": [
+    {
+      "id": "user_demo_001",
+      "nome": "João Silva",
+      "email": "joao@email.com",
+      "password": "12345678",
+      "cpf": "123.456.789-00",
+      "telefone": "(11) 99999-9999",
+      "dataNascimento": "1990-01-15",
+      "sexo": "masculino",
+      "endereco": {
+        "cep": "01310-100",
+        "logradouro": "Avenida Paulista",
+        "numero": "1000",
+        "complemento": "Apto 101",
+        "bairro": "Bela Vista",
+        "cidade": "São Paulo",
+        "estado": "SP"
+      },
+      "dataCadastro": "2024-01-15T10:30:00.000Z",
+      "assinaturas": [
+        {
+          "planoId": "gaviao",
+          "planoNome": "Plano Gavião",
+          "dataInicio": "2024-01-15T10:30:00.000Z",
+          "status": "ativa"
+        }
+      ]
+    }
+  ],
+  "pedidos": [
+    {
+      "id": "pedido_001",
+      "userId": "user_demo_001",
+      "itens": [
+        {
+          "id": "gaviao",
+          "nome": "Plano Gavião",
+          "preco": 49.90
+        }
+      ],
+      "total": 49.90,
+      "metodo": "credit",
+      "status": "aprovado",
+      "dataPedido": "2024-01-15T10:30:00.000Z"
+    }
+  ],
+  "configuracoes": {
+    "site": {
+      "nome": "FIEL Torcedor",
+      "slogan": "A forma mais intensa de estar perto do Corinthians",
+      "email": "contato@corinthians.com.br",
+      "telefone": "(11) 2095-3000"
+    },
+    "pagamento": {
+      "metodosAtivos": ["credit", "debit", "pix", "boleto"],
+      "parcelamentoMaximo": 12,
+      "pixAtivo": true,
+      "boletoVencimentoDias": 3
+    }
+  }
+}
