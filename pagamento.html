@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento - FIEL Torcedor</title>
+    <link rel="stylesheet" href="payment-style.css">
+</head>
+<body>
+    <div class="payment-container">
+        <div class="payment-header">
+            <a href="index.html" class="back-button">← Voltar às compras</a>
+            <div class="logo">PAVILHÃO 1910</div>
+        </div>
+
+        <div class="payment-content">
+            <!-- RESUMO DO PEDIDO -->
+            <div class="order-summary">
+                <h2>Resumo do Pedido</h2>
+                <div id="orderItems" class="order-items"></div>
+                
+                <div class="order-total">
+                    <div class="total-row">
+                        <span>Subtotal:</span>
+                        <span id="orderSubtotal">R$ 0,00</span>
+                    </div>
+                    <div class="total-row total-final">
+                        <span>Total:</span>
+                        <span id="orderTotal">R$ 0,00</span>
+                    </div>
+                    <p class="recurrence-info">* Valor mensal recorrente</p>
+                </div>
+            </div>
+
+            <!-- FORMULÁRIO DE PAGAMENTO -->
+            <div class="payment-form-container">
+                <h2>Forma de Pagamento</h2>
+
+                <!-- SELEÇÃO DE MÉTODO -->
+                <div class="payment-methods">
+                    <button class="payment-method active" data-method="credit" onclick="selecionarMetodo('credit')">
+                        <span class="method-icon"></span>
+                        <span class="method-name">Cartão de Crédito</span>
+                    </button>
+                    <button class="payment-method" data-method="debit" onclick="selecionarMetodo('debit')">
+                        <span class="method-icon"></span>
+                        <span class="method-name">Cartão de Débito</span>
+                    </button>
+                    <button class="payment-method" data-method="pix" onclick="selecionarMetodo('pix')">
+                        <span class="method-icon"></span>
+                        <span class="method-name">PIX</span>
+                    </button>
+                    <button class="payment-method" data-method="boleto" onclick="selecionarMetodo('boleto')">
+                        <span class="method-icon"></span>
+                        <span class="method-name">Boleto</span>
+                    </button>
+                </div>
+
+                <!-- FORMULÁRIO DE CARTÃO -->
+                <form id="cardForm" class="payment-form">
+                    <div class="form-group">
+                        <label for="cardNumber">Número do Cartão *</label>
+                        <input 
+                            type="text" 
+                            id="cardNumber" 
+                            name="cardNumber" 
+                            placeholder="0000 0000 0000 0000"
+                            maxlength="19"
+                            required
+                        >
+                        <div class="card-brands">
+                            <span class="card-brand visa"></span>
+                            <span class="card-brand master"></span>
+                            <span class="card-brand elo"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cardName">Nome no Cartão *</label>
+                        <input 
+                            type="text" 
+                            id="cardName" 
+                            name="cardName" 
+                            placeholder="Nome como está no cartão"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cardExpiry">Validade *</label>
+                            <input 
+                                type="text" 
+                                id="cardExpiry" 
+                                name="cardExpiry" 
+                                placeholder="MM/AA"
+                                maxlength="5"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cardCVV">CVV *</label>
+                            <input 
+                                type="text" 
+                                id="cardCVV" 
+                                name="cardCVV" 
+                                placeholder="123"
+                                maxlength="4"
+                                required
+                            >
+                            <small class="form-help">3 ou 4 dígitos no verso</small>
+                        </div>
+                    </div>
+
+                    <div id="installments" class="form-group" style="display: none;">
+                        <label for="installmentSelect">Parcelamento</label>
+                        <select id="installmentSelect" name="installments">
+                            <option value="1">1x sem juros</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cardCPF">CPF do Titular *</label>
+                        <input 
+                            type="text" 
+                            id="cardCPF" 
+                            name="cardCPF" 
+                            placeholder="000.000.000-00"
+                            maxlength="14"
+                            required
+                        >
+                    </div>
+
+                    <div class="security-info">
+                        <span class="security-icon"></span>
+                        <div>
+                            <strong>Pagamento 100% Seguro</strong>
+                            <p>Seus dados estão protegidos com criptografia SSL</p>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-payment">
+                        Confirmar Pagamento
+                    </button>
+                </form>
+
+                <!-- FORMULÁRIO PIX -->
+                <div id="pixForm" class="payment-form" style="display: none;">
+                    <div class="pix-container">
+                        <div class="pix-qrcode">
+                            <div class="qr-placeholder">
+                                <span class="qr-icon"></span>
+                                <p>QR Code PIX</p>
+                            </div>
+                        </div>
+                        <div class="pix-instructions">
+                            <h3>Como pagar com PIX:</h3>
+                            <ol>
+                                <li>Abra o app do seu banco</li>
+                                <li>Escolha a opção PIX</li>
+                                <li>Escaneie o QR Code ou copie o código</li>
+                                <li>Confirme o pagamento</li>
+                            </ol>
+                        </div>
+                        <div class="pix-code">
+                            <input type="text" value="00020126580014BR.GOV.BCB.PIX" readonly>
+                            <button class="copy-button" onclick="copiarCodigoPix()">Copiar Código</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FORMULÁRIO BOLETO -->
+                <div id="boletoForm" class="payment-form" style="display: none;">
+                    <div class="boleto-container">
+                        <div class="boleto-info">
+                            <span class="boleto-icon"></span>
+                            <h3>Boleto Bancário</h3>
+                            <p>O boleto será gerado após a confirmação do pedido</p>
+                        </div>
+                        <div class="boleto-instructions">
+                            <h4>Importante:</h4>
+                            <ul>
+                                <li>O boleto vence em 3 dias úteis</li>
+                                <li>O pagamento pode levar até 2 dias úteis para ser confirmado</li>
+                                <li>Você receberá o boleto por e-mail</li>
+                                <li>Após o pagamento, sua assinatura será ativada</li>
+                            </ul>
+                        </div>
+                        <button class="submit-payment" onclick="gerarBoleto()">
+                            Gerar Boleto
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="payment-footer">
+            <p>© 2025 Sport Club Corinthians Paulista - Pagamento Seguro</p>
+        </div>
+    </div>
+
+    <script src="payment.js"></script>
+</body>
+</html>

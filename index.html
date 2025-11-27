@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIEL Torcedor - Sport Club Corinthians Paulista</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">PAVILHÃO 1910</div>
+            <nav class="nav">
+                <a href="#planos">Planos</a>
+                <a href="#beneficios">Benefícios</a>
+                <a href="login.html" class="nav-login">Entrar</a>
+                <a href="cadastro.html" class="nav-cadastro">Cadastrar</a>
+                <button class="cart-button" onclick="abrirCarrinho()">
+                    🛒 <span class="cart-count">0</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>FIEL TORCEDOR</h1>
+            <p>A forma mais intensa de estar perto do Corinthians</p>
+            <a href="#planos" class="cta-button">Faça parte do Pavilhão 1910</a>
+        </div>
+    </section>
+
+    <div class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">30M+</div>
+                <div class="stat-label">Torcedores</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">113</div>
+                <div class="stat-label">Anos História</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">30+</div>
+                <div class="stat-label">Títulos</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">47K</div>
+                <div class="stat-label">Neo Química</div>
+            </div>
+        </div>
+    </div>
+
+    <section class="section" id="planos">
+        <h2 class="section-title">Escolha Seu Plano</h2>
+        
+        <div class="plans-grid">
+            <div class="plan-card" data-plan="louco">
+                <div class="plan-icon"></div>
+                <h3 class="plan-name">Plano Louco</h3>
+                <div class="plan-price">R$ 19,90<span>/mês</span></div>
+                <p class="plan-description">
+                    Perfeito para quem mora longe mas quer estar sempre conectado com o Timão. Conteúdos exclusivos e premiações especiais.
+                </p>
+                <button class="plan-button" onclick="adicionarAoCarrinho('louco', 'Plano Louco', 19.90)">Assinar Agora</button>
+            </div>
+
+            <div class="plan-card" data-plan="gaviao">
+                <div class="plan-icon"></div>
+                <h3 class="plan-name">Plano Gavião</h3>
+                <div class="plan-price">R$ 49,90<span>/mês</span></div>
+                <p class="plan-description">
+                    Prioridade e desconto na compra de ingressos para setores Sul e Leste. Para quem não perde um jogo na Arena!
+                </p>
+                <button class="plan-button" onclick="adicionarAoCarrinho('gaviao', 'Plano Gavião', 49.90)">Assinar Agora</button>
+            </div>
+
+            <div class="plan-card" data-plan="mosqueteiro">
+                <div class="plan-icon"></div>
+                <h3 class="plan-name">Plano Mosqueteiro</h3>
+                <div class="plan-price">R$ 89,90<span>/mês</span></div>
+                <p class="plan-description">
+                    Maior pontuação e prioridade na escolha de assentos nos setores Leste e Oeste. Escolha os melhores lugares!
+                </p>
+                <button class="plan-button" onclick="adicionarAoCarrinho('mosqueteiro', 'Plano Mosqueteiro', 89.90)">Assinar Agora</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits" id="beneficios">
+        <h2 class="section-title">Benefícios Exclusivos</h2>
+        
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon"></div>
+                <h3 class="benefit-title">Prioridade</h3>
+                <p class="benefit-text">Compre seus ingressos antes de todo mundo e garanta seu lugar</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon"></div>
+                <h3 class="benefit-title">Descontos</h3>
+                <p class="benefit-text">Descontos especiais em produtos oficiais e experiências</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon"></div>
+                <h3 class="benefit-title">Prêmios</h3>
+                <p class="benefit-text">Concorra a prêmios e experiências únicas com o clube</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon"></div>
+                <h3 class="benefit-title">App Universo</h3>
+                <p class="benefit-text">Acesso ao aplicativo com conteúdos exclusivos e benefícios digitais</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon"></div>
+                <h3 class="benefit-title">Conteúdo</h3>
+                <p class="benefit-text">Vídeos, entrevistas e bastidores exclusivos do Timão</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon"></div>
+                <h3 class="benefit-title">Experiências</h3>
+                <p class="benefit-text">Viva momentos únicos nos dias de jogo na Neo Química Arena</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section cta-section">
+        <h2 class="section-title">Pronto Para Fazer Parte?</h2>
+        <p class="cta-description">
+            Junte-se a milhões de torcedores apaixonados pelo Corinthians
+        </p>
+        <a href="#planos" class="cta-button">Escolha Seu Plano</a>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">SPORT CLUB CORINTHIANS PAULISTA</div>
+            <p class="footer-text">
+                Fundado em 1º de setembro de 1910<br>
+                A maior torcida do Brasil
+            </p>
+           
+            <p class="footer-copyright">
+                © 2025 Sport Club Corinthians Paulista. Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- CARRINHO LATERAL -->
+    <div id="cartSidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h2>Seu Carrinho</h2>
+            <button class="close-cart" onclick="fecharCarrinho()">✕</button>
+        </div>
+        
+        <div class="cart-content">
+            <div id="cartItems" class="cart-items"></div>
+            
+            <div class="cart-total">
+                <div class="total-row">
+                    <span>Subtotal:</span>
+                    <span id="subtotal">R$ 0,00</span>
+                </div>
+                <div class="total-row total-final">
+                    <span>Total:</span>
+                    <span id="total">R$ 0,00</span>
+                </div>
+            </div>
+            
+            <button class="checkout-button" onclick="irParaPagamento()">
+                Finalizar Pedido
+            </button>
+        </div>
+    </div>
+
+    <!-- OVERLAY DO CARRINHO -->
+    <div id="cartOverlay" class="cart-overlay" onclick="fecharCarrinho()"></div>
+
+    <script src="script.js"></script>
+    <script src="cart.js"></script>
+</body>
+</html>
